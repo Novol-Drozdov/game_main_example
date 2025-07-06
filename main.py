@@ -1,8 +1,11 @@
 import pygame
 import random
 
-# image_path = '/data/data/org.test.Running/files/app/'
-image_path = ""
+# path = '/data/data/org.test.Running/files/app/'
+path = ""
+
+image_path = "game_main_example\images"
+model_path = "game_main_example\models"
 
 clock = pygame.time.Clock()
 
@@ -11,27 +14,27 @@ clock = pygame.time.Clock()
 pygame.init()
 screen = pygame.display.set_mode((1280, 748))
 pygame.display.set_caption("Running ")
-icon = pygame.image.load(image_path +'Game_main\images\icon.png').convert_alpha()
+icon = pygame.image.load(path + image_path + '\icon.png').convert_alpha()
 pygame.display.set_icon(icon)
 
 
 #Задний фон
-bg = pygame.image.load(image_path + 'Game_main\images\Bg.png').convert_alpha()
+bg = pygame.image.load(path + image_path + '\Bg.png').convert_alpha()
 bg_x = 0
 
 
 #Игрок
 walk_left = [
-    pygame.image.load(image_path +'Game_main\models\player_left\player_left1.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_left\player_left2.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_left\player_left3.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_left\player_left4.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_left\player_left1.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_left\player_left2.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_left\player_left3.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_left\player_left4.png').convert_alpha(),
 ]
 walk_right = [
-    pygame.image.load(image_path +'Game_main\models\player_right\player_right1.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_right\player_right2.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_right\player_right3.png').convert_alpha(),
-    pygame.image.load(image_path +'Game_main\models\player_right\player_right4.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_right\player_right1.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_right\player_right2.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_right\player_right3.png').convert_alpha(),
+    pygame.image.load(path + model_path + '\player_right\player_right4.png').convert_alpha(),
 ]
 player_anim_count = 0
 player_speed = 7
@@ -42,14 +45,14 @@ jump_count = 8
 
 
 #Призрак
-ghost = pygame.image.load(image_path +'Game_main/models/ghost.png').convert_alpha()
+ghost = pygame.image.load(path + model_path + '/ghost.png').convert_alpha()
 ghost_list_in_game =[]
 ghost_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(ghost_timer, 2500)
 
 
 #Текст
-label = pygame.font.Font(image_path +'Game_main/models/Fonts_Game/Roboto_Condensed-Light.ttf', 80)
+label = pygame.font.Font(path + model_path + '/Fonts_Game/Roboto_Condensed-Light.ttf', 80)
 lose_label = label.render('Вы погибли', False, (255, 255, 255))
 restart_label = label.render('Заново', False, (255, 255, 255))
 restart_label_rect = restart_label.get_rect(topleft=(470,300))
@@ -58,8 +61,8 @@ Start_label_rect = Start_label.get_rect(topleft=(420,300))
 
 
 #Снаряды
-bullet = pygame.image.load(image_path +'Game_main/models/bullet_player.png').convert_alpha()
-bullet_pack = pygame.image.load(image_path +'Game_main/models/bullets_pack.png').convert_alpha()
+bullet = pygame.image.load(path + model_path +'/bullet_player.png').convert_alpha()
+bullet_pack = pygame.image.load(path + model_path + '/bullets_pack.png').convert_alpha()
 post_list_y_pack = [200, 500, 400, 764, 153]
 post_x_pack = random.choice(post_list_y_pack)
 bullets = []
