@@ -63,8 +63,8 @@ Start_label_rect = Start_label.get_rect(topleft=(420,300))
 #Снаряды
 bullet = pygame.image.load(path + model_path +'/bullet_player.png').convert_alpha()
 bullet_pack = pygame.image.load(path + model_path + '/bullets_pack.png').convert_alpha()
-post_list_y_pack = [200, 500, 400, 764, 153]
-post_x_pack = random.choice(post_list_y_pack)
+post_list_x_pack = [200, 500, 400, 764, 153]
+post_x_pack = random.choice(post_list_x_pack)
 bullets = []
 bullet_left = 5
 bullet_list_in_game = []
@@ -173,6 +173,7 @@ while running:
                 bullet_list_in_game.clear()
                 bullets.clear()
                 bullet_left = 5
+                post_x_pack = random.choice(post_list_x_pack)
 
     pygame.display.update()
 
@@ -187,6 +188,6 @@ while running:
             bullet_left -= 1
         if event.type == pack_timer and bullet_list_in_game == []:
                 bullet_list_in_game.append(bullet_pack.get_rect(topleft=(post_x_pack, 570)))
-                post_y_pack = random.choice(post_list_y_pack)
+                post_x_pack = random.choice(post_list_x_pack)
 
     clock.tick(18)
